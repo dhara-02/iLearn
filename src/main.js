@@ -7,7 +7,7 @@ export async function changeColor() {
     await chrome.tabs.query({active: true, currentWindow: true}, 
       (
         r => {
-            console.warn('tab details: ', r);
+        console.warn('changeColor tab details: ', r);
         chrome.tabs.executeScript(r[0].id , {file: 'scripts/changeBgColor.js'}, function() {
           if(chrome.runtime.lastError) {
             console.error("Script injection failed: " + chrome.runtime.lastError.message);
